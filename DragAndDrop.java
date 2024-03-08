@@ -27,6 +27,15 @@ public class DragAndDrop {
 		
 		Actions act = new Actions(driver);
 		act.dragAndDrop(drag, drop).build().perform();
+                String x =drop.getCssValue("background-color");   //getcssvalue is used to read the css attribute(to get the colour) 
+		if(x.equals("rgba(255, 250, 144, 1)"))
+		{
+			System.out.println("Successfully dropped");
+		}
+		else
+		{
+			System.out.println("Dropped is failed");
+		}
 		String actualtext = driver.findElement(By.xpath("(//p[normalize-space()='Dropped!'])[1]")).getText();
 		String expectedtext ="Dropped!";          //Verifying Drop
 		
